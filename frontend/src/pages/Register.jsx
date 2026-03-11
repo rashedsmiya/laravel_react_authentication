@@ -44,14 +44,27 @@ export default function Register() {
     }
 
     try{
-      const response = await api.post('/register',{
-        name:name,
-        email:email,
-        password:password,
-        password_confirmation:confirmPassword,
-        terms:terms
+      const response = await api.post('/register', {name, email, password});
+        console.log(response.data);
+        if(response.data.status === 200){
+          successeError(response.data.message);
+          navigate('/');
+        }else{
+          setError(response.data.message);
+        }
+
+      }catch(error){
+        console.log(error);
+      }finally{
+        setloading(false);
+      }
+
+    try{
+      const response = await api.post('/register', {
+        name: name,
+        email: email,
+        password: password,
       })
-      
       // Show success message and redirect to login
       alert('Registration successful! Please login with your credentials.')
       navigate('/')

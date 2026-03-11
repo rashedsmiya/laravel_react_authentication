@@ -1,25 +1,27 @@
-/**
- * Notification utility for displaying toast messages
- */
+import { toast } from "react-toastify";
 
-/**
- * Display a success notification
- * @param {string} message - The message to display
- */
-export const notifySuccess = (message) => {
-  // For now, use alert - can be replaced with toast library later
-  alert(message);
+const showError = (message) => {
+  toast.error(message, {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
 };
 
-/**
- * Display an error notification
- * @param {string} message - The error message to display
- */
-export const notifyError = (message) => {
-  alert(`Error: ${message}`);
+export const showSuccess = (message) => {
+  toast.success(message, {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
 };
 
-export default {
-  success: notifySuccess,
-  error: notifyError,
-};
+export { showError };
