@@ -12,6 +12,7 @@ export default function Register() {
   const [terms, setterms] = React.useState(false)
   const [loading, setloading] = React.useState(false)
   const [error, setError] = React.useState('')
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setloading(true);
